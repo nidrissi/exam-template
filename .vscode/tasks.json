@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Pandoc",
+      "type": "process",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "pandoc",
+      "args": [
+        "--verbose",
+        "--pdf-engine",
+        "lualatex",
+        "--template",
+        "exam-template.tex",
+        "--lua-filter",
+        "exam-filter.lua",
+        "${file}",
+        "--output",
+        "${relativeFileDirname}/${fileBasenameNoExtension}.pdf"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

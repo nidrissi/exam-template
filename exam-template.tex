@@ -1,0 +1,65 @@
+\documentclass[12pt, a4paper $if(answers)$, answers $endif$]{exam}
+
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+\usepackage[babel]{microtype}
+\usepackage{amsmath, amssymb, mathtools, mathrsfs}
+\usepackage{enumitem}
+
+\usepackage{unicode-math}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{Linux Biolinum O}[Scale=MatchLowercase]
+\setmonofont{Cascadia Mono}[Scale=MatchLowercase]
+\setmathfont{TeX Gyre Pagella Math}[Scale=MatchLowercase]
+
+\usepackage[svgnames]{xcolor}
+
+$if(tikz)$
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+$endif$
+
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle={\bfseries\color{Green}},
+  keywordstyle={[2]\color{Green}},
+  commentstyle={\color{Gray}},
+  stringstyle={\color{IndianRed}},
+}
+\newcommand{\passthrough}[1]{#1}
+
+% for some reason pandoc uses this
+\newcommand{\tightlist}{}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\shadedsolutions
+
+\header{$course.short$}{}{Université de Paris}
+\footer{}{Page \thepage{} of \numpages{}}{\iflastpage{\emph{End of the exam}}{\emph{Please turn the page}}}
+\runningheadrule{}
+
+\renewcommand{\thequestion}{\bfseries \sffamily Exercice \arabic{question}}
+\renewcommand{\thepartno}{\arabic{question}.\alph{partno}}
+
+\title{\sffamily $title$}
+\author{$course.long$}
+\date{$date$}
+
+\begin{document}
+\maketitle
+\thispagestyle{headandfoot}
+
+\emph{$preamble$}
+
+\begin{questions}
+    $body$
+\end{questions}
+\end{document}
